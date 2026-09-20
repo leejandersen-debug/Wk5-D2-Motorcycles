@@ -1,0 +1,52 @@
+---
+const { bike } = Astro.props;
+---
+
+<article class="card">
+	<h3>{bike.brand}</h3>
+	<p class="model">{bike.model}</p>
+	<dl>
+		<dt>Age group</dt>
+		<dd>{bike.ageGroup}</dd>
+		<dt>Size</dt>
+		<dd>{bike.size}</dd>
+		<dt>Engine</dt>
+		<dd>{bike.stroke}</dd>
+		<dt>Options</dt>
+		<dd>{bike.options}</dd>
+	</dl>
+</article>
+
+<style>
+	.card {
+		border: 1px solid #e2e8f0;
+		border-radius: 8px;
+		padding: 1rem;
+		background: #ffffff;
+	}
+	.card h3 {
+		margin: 0 0 0.25rem;
+		font-size: 1.1rem;
+	}
+	.card .model {
+		margin: 0 0 0.75rem;
+		color: #64748b;
+		font-size: 0.9rem;
+	}
+	.card dl {
+		margin: 0;
+		font-size: 0.85rem;
+	}
+	.card dt {
+		font-weight: 600;
+		color: #334155;
+		margin-top: 0.5rem;
+	}
+	.card dt:first-child {
+		margin-top: 0;
+	}
+	.card dd {
+		margin: 0;
+		color: #475569;
+	}
+</style>
