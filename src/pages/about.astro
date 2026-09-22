@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { motorcycles } from '../data/motorcycles.js';
+
+const brands = [...new Set(motorcycles.map((bike) => bike.brand))].sort();
+---
+
+<BaseLayout title="About — Motorcycle Finder">
+  <section class="about">
+    <a class="back" href="/">
+      ← Back to home
+    </a>
+    <h1>About Motorcycle Finder</h1>
+    <p class="lead">
+      Motorcycle Finder helps parents and riders pick the right motocross bike,
+      from a first bike for a young kid to a full-size race machine.
+    </p>
+
+    <h2>What you'll find here</h2>
+    <p>
+      We review youth and adult motocross bikes and match each one to the rider
+      it suits best. Every bike lists its age group, engine size, engine type,
+      and key features, so you can compare them side by side before you buy.
+    </p>
+
+    <h2>How to use the site</h2>
+    <ul>
+      <li>
+        <strong>Browse by engine type.</strong> Compare
+        <a href="/motorcycles/2-stroke">2-stroke</a> and
+        <a href="/motorcycles/4-stroke">4-stroke</a> bikes, listed smallest to
+        largest.
+      </li>
+      <li>
+        <strong>Browse by age group.</strong> Start from the
+        <a href="/">home page</a> to see bikes sized for a rider's age.
+      </li>
+      <li>
+        <strong>Save your favorites.</strong> Tap the heart on any bike to keep
+        it on your <a href="/favorites">Favorites</a> page. Favorites are saved
+        in your browser.
+      </li>
+    </ul>
+
+    <h2>Brands we cover</h2>
+    <p>
+      {motorcycles.length} bikes from {brands.length} brands:
+    </p>
+    <ul class="brands">
+      {brands.map((brand) => (
+        <li>{brand}</li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .about {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+    line-height: 1.6;
+    color: #334155;
+  }
+  .back {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #475569;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .back:hover {
+    text-decoration: underline;
+  }
+  h1 {
+    font-size: 1.75rem;
+    margin: 0 0 0.5rem;
+    color: #1e293b;
+  }
+  .lead {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #475569;
+    margin: 0 0 1.5rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin: 2rem 0 0.5rem;
+    color: #1e293b;
+  }
+  ul {
+    padding-left: 1.25rem;
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
+  a {
+    color: #1d4ed8;
+  }
+  .brands {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+  }
+  .brands li {
+    margin: 0;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    font-size: 0.9rem;
+  }
+</style>
