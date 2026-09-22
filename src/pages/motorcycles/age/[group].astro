@@ -27,7 +27,7 @@ const bikes = motorcycles.filter((bike) => ageCategory(bike) === category);
     <h1>{category} bikes</h1>
     <div class="card-row">
       {bikes.map((bike) => (
-        <BikeCard bike={bike} />
+        <BikeCard client:load bike={bike} />
       ))}
     </div>
   </section>

@@ -17,7 +17,7 @@ const bikes = motorcycles
     <p class="subtitle">Sorted by engine size, smallest to largest.</p>
     <div class="card-row">
       {bikes.map((bike) => (
-        <BikeCard bike={bike} />
+        <BikeCard client:load bike={bike} />
       ))}
     </div>
   </section>

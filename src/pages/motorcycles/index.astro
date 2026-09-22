@@ -12,7 +12,7 @@ import { motorcycles } from '../../data/motorcycles.js';
     <h1>All motorcycle reviews</h1>
     <div class="card-row">
       {motorcycles.map((bike) => (
-        <BikeCard bike={bike} />
+        <BikeCard client:load bike={bike} />
       ))}
     </div>
   </section>
