@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import DealerSearch from '../components/DealerSearch.jsx';
 import { motorcycles, ageCategory, slugify } from '../data/motorcycles.js';
 
 const ageGroups = [...new Set(motorcycles.map(ageCategory))];
+const brands = [...new Set(motorcycles.map((bike) => bike.brand))].sort();
 ---
 
 <BaseLayout title="Motorcycle Finder — Home">
@@ -16,6 +18,10 @@ const ageGroups = [...new Set(motorcycles.map(ageCategory))];
       bikes across the brands that matter — so parents and riders can compare
       engine size, stroke type, and rider fit before they buy.
     </p>
+  </section>
+
+  <section class="dealer-search">
+    <DealerSearch client:load brands={brands} />
   </section>
 
   <section class="engine-menu">
@@ -66,6 +72,7 @@ const ageGroups = [...new Set(motorcycles.map(ageCategory))];
     color: #334155;
   }
 
+  .dealer-search,
   .engine-menu,
   .age-menu {
     max-width: 1100px;
