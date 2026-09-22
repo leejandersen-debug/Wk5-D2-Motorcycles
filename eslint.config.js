@@ -14,6 +14,13 @@ export default [
       globals: { ...globals.browser, ...globals.node },
     },
   },
+  // Lint React components written in .jsx
+  {
+    files: ['**/*.jsx'],
+    languageOptions: {
+      parserOptions: { ecmaFeatures: { jsx: true } },
+    },
+  },
   // Turn off ESLint rules that conflict with Prettier's formatting
   prettier,
 ];

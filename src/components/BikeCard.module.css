@@ -1,0 +1,64 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #ffffff;
+}
+.cardMedia {
+  position: relative;
+  height: 110px;
+  margin: -1rem -1rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--hue) 70% 92%);
+}
+.bikeIcon {
+  width: 70px;
+  height: 70px;
+  color: hsl(var(--hue) 55% 38%);
+}
+.brandBadge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: hsl(var(--hue) 60% 40%);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+.card h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+}
+.card .model {
+  margin: 0 0 0.75rem;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+.card dl {
+  margin: 0;
+  font-size: 0.85rem;
+}
+.card dt {
+  font-weight: 600;
+  color: #334155;
+  margin-top: 0.5rem;
+}
+.card dt:first-child {
+  margin-top: 0;
+}
+.card dd {
+  margin: 0;
+  color: #475569;
+}
