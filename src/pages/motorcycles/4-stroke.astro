@@ -4,58 +4,62 @@ import BikeCard from '../../components/BikeCard.astro';
 import { motorcycles, sizeInCc } from '../../data/motorcycles.js';
 
 const bikes = motorcycles
-	.filter((bike) => bike.stroke === '4-stroke')
-	.sort((a, b) => sizeInCc(a) - sizeInCc(b));
+  .filter((bike) => bike.stroke === '4-stroke')
+  .sort((a, b) => sizeInCc(a) - sizeInCc(b));
 ---
 
 <BaseLayout title="4-Stroke Bikes — Motorcycle Finder">
-	<section class="listing">
-		<a class="back" href="/">← Back to home</a>
-		<h1>4-Stroke bikes</h1>
-		<p class="subtitle">Sorted by engine size, smallest to largest.</p>
-		<div class="card-row">
-			{bikes.map((bike) => <BikeCard bike={bike} />)}
-		</div>
-	</section>
+  <section class="listing">
+    <a class="back" href="/">
+      ← Back to home
+    </a>
+    <h1>4-Stroke bikes</h1>
+    <p class="subtitle">Sorted by engine size, smallest to largest.</p>
+    <div class="card-row">
+      {bikes.map((bike) => (
+        <BikeCard bike={bike} />
+      ))}
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-	.listing {
-		max-width: 1100px;
-		margin: 0 auto;
-		padding: 2rem 1.5rem 3rem;
-	}
-	.back {
-		display: inline-block;
-		margin-bottom: 1rem;
-		color: #475569;
-		text-decoration: none;
-		font-size: 0.9rem;
-	}
-	.back:hover {
-		text-decoration: underline;
-	}
-	h1 {
-		font-size: 1.75rem;
-		margin: 0 0 0.25rem;
-	}
-	.subtitle {
-		margin: 0 0 1.5rem;
-		color: #64748b;
-	}
-	.card-row {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 1rem;
-	}
-	@media (max-width: 720px) {
-		.card-row {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-	@media (max-width: 440px) {
-		.card-row {
-			grid-template-columns: 1fr;
-		}
-	}
+  .listing {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+  }
+  .back {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #475569;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .back:hover {
+    text-decoration: underline;
+  }
+  h1 {
+    font-size: 1.75rem;
+    margin: 0 0 0.25rem;
+  }
+  .subtitle {
+    margin: 0 0 1.5rem;
+    color: #64748b;
+  }
+  .card-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  @media (max-width: 720px) {
+    .card-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 440px) {
+    .card-row {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

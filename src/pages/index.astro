@@ -6,129 +6,135 @@ const ageGroups = [...new Set(motorcycles.map(ageCategory))];
 ---
 
 <BaseLayout title="Motorcycle Finder — Home">
-	<section class="hero">
-		<h1>Find the right dirt bike for every rider</h1>
-		<p class="tagline">Curated motocross bike reviews, matched to rider age and size.</p>
-		<p>
-			Motorcycle Finder curates hands-on reviews of youth and adult motocross
-			bikes across the brands that matter — so parents and riders can compare
-			engine size, stroke type, and rider fit before they buy.
-		</p>
-	</section>
+  <section class="hero">
+    <h1>Find the right dirt bike for every rider</h1>
+    <p class="tagline">
+      Curated motocross bike reviews, matched to rider age and size.
+    </p>
+    <p>
+      Motorcycle Finder curates hands-on reviews of youth and adult motocross
+      bikes across the brands that matter — so parents and riders can compare
+      engine size, stroke type, and rider fit before they buy.
+    </p>
+  </section>
 
-	<section class="engine-menu">
-		<h2>Browse by engine type</h2>
-		<div class="nav-card-row">
-			<a class="nav-card" href="/motorcycles/2-stroke">
-				<h3>2-Stroke</h3>
-				<p>Lightweight, high-revving bikes, listed smallest to largest.</p>
-			</a>
-			<a class="nav-card" href="/motorcycles/4-stroke">
-				<h3>4-Stroke</h3>
-				<p>Smoother, torquier power delivery, listed smallest to largest.</p>
-			</a>
-		</div>
-	</section>
+  <section class="engine-menu">
+    <h2>Browse by engine type</h2>
+    <div class="nav-card-row">
+      <a class="nav-card" href="/motorcycles/2-stroke">
+        <h3>2-Stroke</h3>
+        <p>Lightweight, high-revving bikes, listed smallest to largest.</p>
+      </a>
+      <a class="nav-card" href="/motorcycles/4-stroke">
+        <h3>4-Stroke</h3>
+        <p>Smoother, torquier power delivery, listed smallest to largest.</p>
+      </a>
+    </div>
+  </section>
 
-	<section class="age-menu">
-		<h2>Browse by age group</h2>
-		<ul class="age-links">
-			{ageGroups.map((group) => (
-				<li><a href={`/motorcycles/age/${slugify(group)}`}>{group}</a></li>
-			))}
-		</ul>
-	</section>
+  <section class="age-menu">
+    <h2>Browse by age group</h2>
+    <ul class="age-links">
+      {ageGroups.map((group) => (
+        <li>
+          <a href={`/motorcycles/age/${slugify(group)}`}>{group}</a>
+        </li>
+      ))}
+    </ul>
+  </section>
 </BaseLayout>
 
 <style>
-	.hero {
-		max-width: 1100px;
-		margin: 0 auto;
-		padding: 3rem 1.5rem 2rem;
-	}
-	.hero h1 {
-		font-size: 2.25rem;
-		margin: 0 0 0.5rem;
-	}
-	.tagline {
-		font-size: 1.125rem;
-		font-weight: 600;
-		color: #475569;
-		margin: 0 0 1rem;
-	}
-	.hero > p:last-child {
-		max-width: 60ch;
-		line-height: 1.6;
-		color: #334155;
-	}
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 2rem;
+  }
+  .hero h1 {
+    font-size: 2.25rem;
+    margin: 0 0 0.5rem;
+  }
+  .tagline {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #475569;
+    margin: 0 0 1rem;
+  }
+  .hero > p:last-child {
+    max-width: 60ch;
+    line-height: 1.6;
+    color: #334155;
+  }
 
-	.engine-menu,
-	.age-menu {
-		max-width: 1100px;
-		margin: 0 auto;
-		padding: 1rem 1.5rem 2rem;
-	}
-	.engine-menu h2,
-	.age-menu h2 {
-		font-size: 1.5rem;
-		margin-bottom: 1rem;
-	}
+  .engine-menu,
+  .age-menu {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 2rem;
+  }
+  .engine-menu h2,
+  .age-menu h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 
-	.nav-card-row {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 1rem;
-	}
-	@media (max-width: 440px) {
-		.nav-card-row {
-			grid-template-columns: 1fr;
-		}
-	}
-	.nav-card {
-		display: block;
-		border: 1px solid #e2e8f0;
-		border-radius: 8px;
-		padding: 1.25rem;
-		background: #ffffff;
-		text-decoration: none;
-		color: inherit;
-		transition: border-color 0.15s ease, box-shadow 0.15s ease;
-	}
-	.nav-card:hover {
-		border-color: #94a3b8;
-		box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
-	}
-	.nav-card h3 {
-		margin: 0 0 0.5rem;
-		font-size: 1.2rem;
-	}
-	.nav-card p {
-		margin: 0;
-		color: #64748b;
-		font-size: 0.9rem;
-	}
+  .nav-card-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  @media (max-width: 440px) {
+    .nav-card-row {
+      grid-template-columns: 1fr;
+    }
+  }
+  .nav-card {
+    display: block;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.25rem;
+    background: #ffffff;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .nav-card:hover {
+    border-color: #94a3b8;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+  }
+  .nav-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+  }
+  .nav-card p {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.9rem;
+  }
 
-	.age-links {
-		list-style: none;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-		margin: 0;
-		padding: 0;
-	}
-	.age-links a {
-		display: inline-block;
-		padding: 0.5rem 1rem;
-		border: 1px solid #cbd5e1;
-		border-radius: 999px;
-		color: #1e293b;
-		text-decoration: none;
-		font-size: 0.9rem;
-		font-weight: 500;
-	}
-	.age-links a:hover {
-		background: #1e293b;
-		color: #ffffff;
-		border-color: #1e293b;
-	}
+  .age-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+  }
+  .age-links a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    color: #1e293b;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .age-links a:hover {
+    background: #1e293b;
+    color: #ffffff;
+    border-color: #1e293b;
+  }
 </style>
