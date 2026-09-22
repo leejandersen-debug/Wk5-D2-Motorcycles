@@ -1,31 +1,16 @@
 import { useEffect, useState } from 'react';
 import { brandInitials, brandHue } from '../utils/brand.js';
+import {
+  bikeId as getBikeId,
+  readFavorites,
+  writeFavorites,
+} from '../utils/favorites.js';
 import styles from './BikeCard.module.css';
 
-const FAVORITES_KEY = 'favoriteBikes';
-
-// localStorage can be unavailable (private windows, blocked storage), so
-// reads and writes fail quietly instead of breaking the card.
-function readFavorites() {
-  try {
-    return JSON.parse(localStorage.getItem(FAVORITES_KEY)) ?? [];
-  } catch {
-    return [];
-  }
-}
-
-function writeFavorites(favorites) {
-  try {
-    localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
-  } catch {
-    // Favorite still toggles for this visit, it just won't be remembered.
-  }
-}
-
-export default function BikeCard({ bike }) {
+export default function BikeCard({ bike, onFavoriteChange }) {
   const hue = brandHue(bike.brand);
   const initials = brandInitials(bike.brand);
-  const bikeId = `${bike.brand} ${bike.model}`;
+  const bikeId = getBikeId(bike);
   const [isFavorite, setIsFavorite] = useState(false);
 
   // Load the saved state after the page loads, so the server-rendered HTML
@@ -38,6 +23,7 @@ export default function BikeCard({ bike }) {
     const others = readFavorites().filter((id) => id !== bikeId);
     writeFavorites(isFavorite ? others : [...others, bikeId]);
     setIsFavorite(!isFavorite);
+    onFavoriteChange?.(bikeId, !isFavorite);
   }
 
   return (
